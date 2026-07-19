@@ -1,0 +1,25 @@
+---
+layout: default
+title: Notes
+---
+<h1>笔记</h1>
+
+{% assign posts = site.blogs | sort: 'date' | reverse %}
+{% assign grouped = posts | group_by: 'category' %}
+{% for group in grouped %}
+  <section class="note-group">
+    <h2>{{ group.name | default: '未分类' }}</h2>
+    <ul class="post-list">
+      {% for post in group.items %}
+        <li>
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          <span class="date">{{ post.date | date: "%Y-%m-%d" }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+{% endfor %}
+
+{% if posts.size == 0 %}
+  <p class="empty">还没有笔记。在 <code>_blogs/&lt;分类&gt;/&lt;名字&gt;.md</code> 新建文件即可。</p>
+{% endif %}

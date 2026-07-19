@@ -1,0 +1,14 @@
+---
+layout: default
+---
+<article class="post">
+  <h1 class="post-title">{{ page.title }}</h1>
+  <p class="post-meta">
+    {% if page.date %}{{ page.date | date: "%Y-%m-%d" }}{% endif %}
+    {% if page.category %}<span class="tag">{{ page.category }}</span>{% endif %}
+  </p>
+  <div class="post-body">
+    {{ content }}
+  </div>
+</article>
+<p class="back-link"><a href="{{ '/blogs.html' | relative_url }}">← 返回笔记列表</a></p>
