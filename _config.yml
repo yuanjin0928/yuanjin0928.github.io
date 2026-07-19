@@ -1,1 +1,5 @@
-
+# Define a custom collection called "blogs"
+collections:
+  notes:
+    output: true                # true = generate a real web page for each note
+    permalink: /blogs/:path/    # Keep the folder structure in the URL
