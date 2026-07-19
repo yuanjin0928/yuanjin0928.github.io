@@ -1,18 +1,18 @@
-<!DOCTYPE html>                <!-- Tells the browser to use modern HTML rules -->
-<html lang="en">
-<head>
-  <meta charset="utf-8">       <!-- Ensures text displays correctly -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">  <!-- Looks right on phones -->
-  <title>My Homepage</title>   <!-- The text shown on the browser tab -->
-  <link rel="stylesheet" href="/assets/style.css">   <!-- This line loads your CSS file -->
-</head>
-<body>
-  <!-- Everything the visitor actually sees goes inside <body> -->
-  <h1>Hi, I'm Jin Yuan</h1>
-  <p>This is my personal homepage. Work in progress.</p>
+---
+layout: default
+title: Home
+---
+<!-- Everything the visitor actually sees goes inside <body> -->
+<h1>Hi, I'm Jin Yuan</h1>
+<p>This is my personal homepage. Work in progress.</p>
 
-  <!-- A link that takes visitors to the notes page -->
-  <p><a href="/blogs/cpu/intel">Read my CPU notes</a></p>
-  <p><a href="/_posts/2026-07-19-note">Read my CPU notes</a></p>
-</body>
-</html>
+<h2>Blog posts</h2>
+<ul>
+  <!-- Loop over every article in the "blogs" collection -->
+  {% for post in site.blogs %}
+    <li>
+    <!-- post.url is the real URL Jekyll computed; post.title is from front matter -->
+      <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
